@@ -1,10 +1,12 @@
 import express from "express";
 import { MongoClient } from "mongodb";
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 
 let school = express();
-let port = 5555;
-let MONGO_URL = "mongodb://127.0.0.1"
+let port = process.env.PORT;
+let MONGO_URL = process.env.MONGO_URL
 
 let client = new MongoClient(MONGO_URL);
 await client.connect();
